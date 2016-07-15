@@ -1,0 +1,15 @@
+== Flashing via OpenWrt ==
+This subtree includes two files, intended to ease flashing hex files to the LPC17xx chip.
+
+* bootloader.py; Which resets the LPC into serial bootloader mode
+* flash.sh; Which invokes the bootloader.py before running the lpc21isp tool.
+
+Using these tools assume 'sh', 'python' ('mraa' and the standard library) and the lpc21isp is installed.
+
+== Usage ==
+Place the LPC hex-file (named main-combined.hex) along-side the flash.sh script, and run:
+```
+./flash.sh [FILENAME]
+```
+
+Segmentation Faults or Illegal Instruction errors may occur, at which point the script retries.
