@@ -1,15 +1,8 @@
 #!/bin/sh
 
-_term() {
-  echo "Caught SIGTERM signal!"
-}
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+cd $DIR
 
-trap _term SIGTERM
-
-echo "Killing sh..."
-killall sh
-echo "Killing python..."
-killall python
 echo "Entering bootloader mode..."
 ./bootloader.py
 echo "Programming..."
